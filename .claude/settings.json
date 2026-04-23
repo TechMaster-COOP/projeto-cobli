@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "Set-Location 'C:\\Users\\Marketing - HOLDING\\Documents\\Projeto COBLI'; $s = git status --porcelain; if ($s) { git add -A; $ts = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'; git commit -m \"auto: update via Claude Code [$ts]\"; git push } 2>$null",
+            "timeout": 30,
+            "statusMessage": "Sincronizando com GitHub..."
+          }
+        ]
+      }
+    ]
+  }
+}
