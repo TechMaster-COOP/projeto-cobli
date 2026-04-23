@@ -14,6 +14,23 @@ streamlit run app.py
 
 There is no build step, test suite, or linter configured.
 
+## GitHub Repository
+
+Repositório: **https://github.com/TechMaster-COOP/projeto-cobli**
+
+### Auto-sync com GitHub
+
+Um hook `PostToolUse` em `.claude/settings.json` faz commit e push automático após cada edição de arquivo (ferramentas `Edit`, `Write`, `NotebookEdit`). O commit usa a mensagem `auto: update via Claude Code [timestamp]`.
+
+O hook só faz commit quando há alterações reais (`git status --porcelain`). Para que o hook esteja ativo em uma nova sessão do Claude Code, abra `/hooks` uma vez após iniciar a sessão (recarrega as configurações).
+
+Para commitar manualmente:
+```powershell
+git add -A
+git commit -m "sua mensagem"
+git push
+```
+
 ## Architecture
 
 This is a **Streamlit financial dashboard** that displays real-time and historical stock prices for Petrobras (PETR4.SA), Itaú Unibanco (ITUB4.SA), and Nvidia (NVDA). All UI labels are in Portuguese.
